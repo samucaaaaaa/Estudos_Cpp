@@ -24,9 +24,8 @@ int main()
     int iNum = 42;
     
     cout << "Valor de Num: " << iNum << endl;
-    
+
     iNum = 111;
-    
     cout << "Valor de Num: " << iNum << endl;
     cout << "Endereço de Num: " << &iNum << endl; // O & serve para saber em qual local da memória que a minha variável está armazenada
     
