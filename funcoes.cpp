@@ -6,6 +6,8 @@ using std::cout;
 using std::endl;
 using std::string;
 
+//TODO: Revisar tipos de funções importantes, como pow()...
+
 void minhaFuncao(int arriNumeros[], int iTamanhoVetor)
 {
     for(int i=0; i<iTamanhoVetor; i++)

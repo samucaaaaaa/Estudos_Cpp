@@ -5,6 +5,8 @@ using std::cin;
 using std::endl;
 using std::string;
 
+//TODO: Revisar Enum
+
 int main()
 {
     enum Streaming {AppleTV, AmazonPrime, CrunchyRoll, DisneyPlus, NetFlix, MAx};

@@ -18,6 +18,8 @@ int main()
     cout << "Valor do Inteiro: " << iValor << ". Endereco do Inteiro: " << &iValor << endl;
     cout << "================================================================" << endl;
 
+    // Essa linha quer dizer que estamos criando um apelido para strNome, ou seja,
+    // o que for auterado em strrefNome também será auterado em strNome 
     string& strrefNome = strNome;
     int irefValor = iValor;
 

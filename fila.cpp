@@ -6,7 +6,6 @@ using std::endl;
 using std::string;
 
 // Fila - FIFO (Primeiro a entrar é o o primeiro a sair)
-// Pilha - (Primeiro a entrar é o último a sair)
 
 typedef struct Node
 {
@@ -38,6 +37,7 @@ Queue* newQueue()
     return temp;
 }
 
+// Adiciona um elemento na fila
 void enQueue(Queue* const queue, int iValue)
 {
     Node* temp = newNode(iValue);
@@ -52,6 +52,31 @@ void enQueue(Queue* const queue, int iValue)
         queue->rear->next = temp;
         queue->rear = temp;
     }
+    return;
+}
+
+// Remove o primeiro elemento da fila
+void deQueue(Queue* const queue)
+{
+    if (queue->front == nullptr)
+    {
+        cout << "Fila Vazia" << endl;
+        return;
+    }
+
+    Node* temp = queue->front;
+
+    cout << "Elemento Removido: " << temp->iData << endl;
+
+    queue->front = queue->front->next;
+
+    if (queue->front == nullptr)
+    {
+        queue->rear = nullptr;
+    }
+
+    free(temp);    
+
     return;
 }
 
@@ -92,12 +117,14 @@ int main()
     // 6. Função que exibe o primeiro elemento
     // 7. Função que exibe o último elemento
     // 8. Função que exibe os elementos
+    // 9. Função que remove um nó
 
     Queue* queue = newQueue();
     showFirstElement(queue);
     showLastElement(queue);
     cout << "---" << endl;
     showElements(queue);
+    deQueue(queue);
     cout << "===================================================" << endl;
 
     enQueue(queue, 0);
@@ -105,6 +132,7 @@ int main()
     showLastElement(queue);
     cout << "---" << endl;
     showElements(queue);
+    deQueue(queue);
     cout << "===================================================" << endl;
 
     enQueue(queue, 3);
