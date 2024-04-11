@@ -112,8 +112,8 @@ int main()
     // 1. Estrutura de um nó
     // 2. Estrutura de uma fila
     // 3. Função que cria uma fila
-    // 4. Funçaõ que cria im nó
-    // 5. Função que enfileira um nó
+    // 4. Função que cria um nó
+    // 5. Função que enfileira um nó *
     // 6. Função que exibe o primeiro elemento
     // 7. Função que exibe o último elemento
     // 8. Função que exibe os elementos
