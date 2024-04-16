@@ -22,6 +22,9 @@ void showLastElement(LinkedList* const);
 void showElements(LinkedList* const);
 void addElement(LinkedList* const, int);
 void dellElement(LinkedList* const, int);
+void ordenaLista(LinkedList* const, bool);//TODO: fazer função que pega os elementos de uma lista e ordena eles
+void deletaIguais(LinkedList* const);//TODO: fazer função que deleta todos os elementos iguais da lista
+void deletaTodosN(LinkedList* const, int);//TODO: fazer função que deleta todos os elementos 'n' da lista
 
 int main()
 {
@@ -54,6 +57,24 @@ int main()
 
     addElement(linkedList, 1);
     showElements(linkedList);
+    cout << "---------------" << endl;
+
+    ordenaLista(linkedList, false);
+    showElements(linkedList);
+    cout << "---------------" << endl;
+
+    addElement(linkedList, 10);
+    addElement(linkedList, 4);
+    showElements(linkedList);
+    cout << "---" << endl;
+    deletaIguais(linkedList);
+    showElements(linkedList);
+    cout << "---------------" << endl;
+
+    addElement(linkedList, 10);
+    addElement(linkedList, 10);
+    showElements(linkedList);
+    deletaTodosN(linkedList, 10);
 
     return 0;
 }
@@ -186,3 +207,97 @@ void dellElement(LinkedList* const linkedList, int iValor)
 
     return;
 }
+
+void ordenaLista(LinkedList* const linkedList, bool ordem)
+{
+    Node* current = linkedList->ptrFirst;
+
+    while (current->next != nullptr)
+    {
+        Node* current2 = current->next;
+        while (current2 != nullptr)
+        {
+            if (ordem == true)
+            {
+                if (current->iData > current2->iData)
+                {
+                    int aux = current->iData;
+                    current->iData = current2->iData;
+                    current2->iData = aux;
+                }
+                current2 = current2->next;
+            }
+            else
+            {
+                if (current->iData < current2->iData)
+                {
+                    int aux = current->iData;
+                    current->iData = current2->iData;
+                    current2->iData = aux;
+                }
+                current2 = current2->next;
+            }    
+        }
+        current = current->next;
+    }
+}
+
+void deletaIguais(LinkedList* const linkedList)
+{
+    Node* current = linkedList->ptrFirst;
+
+    while (current->next != nullptr)
+    {
+        Node* prev = current;
+        Node* current2 = current->next;
+        while (current2 != nullptr)
+        {
+            if (current->iData == current2->iData)
+            {
+                prev->next = current2->next;
+                free(current2);
+                current2 = prev->next;
+            }
+            else 
+            {
+                prev = current2;
+                current2 = current2->next;
+            }
+        }
+        current = current->next;
+    }
+}
+
+void deletaTodosN(LinkedList* const linkedList, int iValor)
+{
+    Node* current = linkedList->ptrFirst;
+
+    // Caso o primeiro foi selecionado
+    if (current->iData == iValor)
+    {
+        linkedList->ptrFirst = linkedList->ptrFirst->next;
+        free(current);
+    }
+
+    while (current->next != nullptr)
+    {
+        Node* temp = current;
+        Node* future = current->next;
+        while (future != nullptr)
+        {
+            if (future->iData == iValor)
+            {
+                temp->next = future->next;
+                free(future);
+                future = temp->next;
+            }
+            else
+            {
+                temp = future;
+                future = future->next;
+            }
+        }
+        current = current->next;
+    }
+}
+

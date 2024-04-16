@@ -22,6 +22,7 @@ int main()
     case CrunchyRoll:
         cout << "Muito bom... [" << streamingSubscription << "]" << endl;
         break;
+        
     default:
         cout << "NADA" << endl;
     }

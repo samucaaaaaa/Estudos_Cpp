@@ -21,6 +21,8 @@ void showTopElements(Stack* const);
 void showElementsStack(Stack* const);
 void addElementStack(Stack* const, int);
 void dellElementStack(Stack* const);
+Stack* criaPilhaInvertida(Stack* const);
+Stack* criaCopiaPilha(Stack* const);
 
 int main()
 {
@@ -51,7 +53,17 @@ int main()
 
     addElementStack(stack, 1);
     showElementsStack(stack);
-    
+    cout << "----------------------" << endl;
+
+    Stack* pilhaInvertida = criaPilhaInvertida(stack);
+    showElementsStack(pilhaInvertida);
+    cout << "----------------------" << endl;
+
+    Stack* copiaPilha = criaCopiaPilha(stack);
+    showElementsStack(copiaPilha);
+    cout << &stack << endl;
+    cout << &copiaPilha << endl;
+
     return 0;
 }
 
@@ -127,4 +139,42 @@ void dellElementStack(Stack* const stack)
     stack->ptrTop = stack->ptrTop->next;
 
     free(temp);
+}
+
+Stack* criaPilhaInvertida(Stack* const stack)
+{
+    Node* current = stack->ptrTop;
+    Stack* pilhaInvertida = newStack();
+
+    while (current != nullptr)
+    {
+        addElementStack(pilhaInvertida, current->iData);
+        current = current->next;
+    }
+    return pilhaInvertida;
+}
+
+Stack* criaCopiaPilha(Stack* const stack)
+{
+    Node* current1 = stack->ptrTop;
+    Stack* pilhaInvertida = newStack();
+    Stack* copiaPilha = newStack();
+
+    while (current1 != nullptr)
+    {
+        addElementStack(pilhaInvertida, current1->iData);
+        current1 = current1->next;
+    }
+
+    Node* current2 = pilhaInvertida->ptrTop;
+
+    while (current2 != nullptr)
+    {
+        addElementStack(copiaPilha, current2->iData);
+        current2 = current2->next;
+    }
+    
+    stack->ptrTop = copiaPilha->ptrTop;
+
+    return stack;
 }
