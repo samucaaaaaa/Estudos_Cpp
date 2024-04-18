@@ -29,6 +29,7 @@ int main()
 
     cout << soma(iNum1, iNum3) << endl;
     cout << soma(iNum1, iNum2, iNum3) << endl;
+    cout << soma(2.9, iNum1, iNum2) << endl;
 
     cout << "=================================";
 }

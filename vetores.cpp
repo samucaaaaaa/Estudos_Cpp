@@ -72,5 +72,9 @@ int main()
         }
     }
 
+    int array[3][6] = {10, 20, 30, 40, 50, 60, 1, 2, 3, 4, 5, 6, 100, 200, 300, 400, 500, 600};
+
+    //cout << sizeof(array)/sizeof(array[0][0]) << endl;
+
     return 0;
 }

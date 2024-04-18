@@ -58,6 +58,13 @@ int main()
         cout << "Vetor[" << i << "] = " << arriVetor[i] << endl;
     }
 
+    cout << "================================================================" << endl;
+
+    troca(iNum1, iNum2);
+
+    cout << "iNum1 = " << iNum1 << endl;
+    cout << "iNum2 = " << iNum2 << endl;
+
     return 0;
 
 }

@@ -9,7 +9,7 @@ typedef struct Livro
         string strTitulo;
         string strAutor;
         int iPublicado;   
-    }; 
+    } Livro; 
 
 struct Ponto
     {

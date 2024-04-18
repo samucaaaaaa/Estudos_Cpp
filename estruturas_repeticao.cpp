@@ -14,14 +14,16 @@ int main()
         iContador++;
     }
 
+    cout << "=================================" << endl;
 
-    iContador = 42;
+    iContador = 2;
     do
     {
         cout << iContador << "\n";
         iContador++;
     } while (iContador <= 5);
 
+    cout << "=================================" << endl;
 
     for (int i = 1; i < 11; i++)
     {

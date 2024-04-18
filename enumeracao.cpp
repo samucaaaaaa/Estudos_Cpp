@@ -22,7 +22,7 @@ int main()
     case CrunchyRoll:
         cout << "Muito bom... [" << streamingSubscription << "]" << endl;
         break;
-        
+
     default:
         cout << "NADA" << endl;
     }
@@ -38,6 +38,14 @@ int main()
 
     Semana diaPalestra = QUARTA;
     cout << diaPalestra << endl;
+
+    cout << "=========================================================" << endl;
+
+    enum Personagem {Hulk, Homem_Aranha, Super_Man, Flash};
+
+    Personagem meuPersonagem = Hulk;
+
+    cout << meuPersonagem << endl;
 
     return 0;
 }
